@@ -1,0 +1,2 @@
+To increase/decrease hit/miss ratio - we should increase/decrease the number of repeating ids
+with a such frequency that these ids will exist in main fake memory
