@@ -19,15 +19,16 @@ int main() {
 	FILE *fp;
 
 	fd = open(dev, O_RDONLY);
-	fp = fopen("ex2.txt", "w");
-	
+		
 	if (fd == -1) {
+		fp = fopen("ex2.txt", "w");
 		fprintf(fp, "cannot open %s: %s\n", dev, strerror(errno));
 		fclose(fp);
 		return EXIT_FAILURE;
 	}
 
 	while (1) {
+		fp = fopen("ex2.txt", "a");
 		n = read(fd, &ev, sizeof ev);
 		if (n == (ssize_t)-1) {
 			if (errno == EINTR)
@@ -42,7 +43,9 @@ int main() {
 		}
 		if (ev.type == EV_KEY && ev.value >= 0 && ev.value <= 1)
 			fprintf(fp, "%s 0x%04x (%d)\n", evval[ev.value], (int)ev.code, (int)ev.code);
+		fclose(fp);
 	}
+	fp = fopen("ex2.txt", "w");
 	fprintf(fp, "%s\n", strerror(errno));
 	fclose(fp);
 	return EXIT_FAILURE;
