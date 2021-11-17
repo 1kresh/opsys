@@ -1,0 +1,18 @@
+ - Recovery
+Concept 1: Killing all the processes involved in the deadlock. Killing process one by one. After killing each process check for deadlock again keep repeating the process till the system recovers from deadlock.
+Concept 2: Resources are preempted from the processes involved in the deadlock, preempted resources are allocated to other processes so that there is a possibility of recovering the system from deadlock.
+Advantage: Simplicity.
+Disadvantage: It is a time and space-consuming process.
+Example: Real-time operating systems use Deadlock recovery.
+
+ - Prevention
+Concept: It blocks at least one of the conditions necessary for deadlock to occur.
+Advantage: It doesn’t have any cost involved because it has to just make one of the conditions false so that deadlock doesn’t occur.
+Disadvantage: Deadlock prevention has low device utilization.
+Example: Spooling and non-blocking synchronization algorithms are used.
+
+ - Avoidance
+Concept: It ensures that system does not go in unsafe state.
+Advantage: There is no system under-utilization as this method works dynamically to allocate the resources.
+Disadvantage: Deadlock avoidance can block processes for too long.
+Example: Banker’s and safety algorithm is used.
